@@ -1,0 +1,32 @@
+class Solution {
+    public int romanToInt(String s) {
+        Integer romanToInt = 0;        
+        HashMap <String, Integer> nums = new HashMap <String, Integer> ();
+        nums.put("I", 1);
+        nums.put("V", 5);
+        nums.put("X", 10);
+        nums.put("L", 50);
+        nums.put("C", 100);
+        nums.put("D", 500);
+        nums.put("M", 1000);
+        
+        String [] new_s = s.split("");        
+        int num []  = new int [s.length()]; 
+        
+        for (int i = 0; i < new_s.length; i++) {                      
+           num [i] = nums.get(new_s[i]);    
+        }
+        // System.out.println(Arrays.toString(num));
+        
+        for (int j = num.length-2; j >= 0 ; j--) {
+            if (num[j] < num[j + 1]) {
+                romanToInt = romanToInt - num[j];               
+            }
+            else {
+                romanToInt = romanToInt + num[j];                
+           }   
+        }        
+        romanToInt = romanToInt + num[num.length-1];
+        return romanToInt;        
+    }
+}
