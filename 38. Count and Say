@@ -1,0 +1,31 @@
+class Solution {
+    public String countAndSay(int n) {
+        StringBuffer build = new StringBuffer("1");
+        System.out.println(build);
+        int count;        
+        for (int i = 1; i < n; i++) {
+            StringBuffer temp = new StringBuffer();            
+            char forCount = build.charAt(0);
+            count = 0;            
+            for (int j = 0; j < build.length(); j++) {                
+                char current = build.charAt(j);
+                if (forCount != current) {
+                    temp.append(count);
+                    temp.append(forCount);
+                    forCount = current;
+                    count = 0;
+                }
+                if (forCount == current) {
+                    count++;
+                }  
+                if (j == build.length()-1) {
+                    temp.append(count);
+                    temp.append(forCount);
+                }                
+            }
+            build = temp; 
+            System.out.println(build);
+        }               
+        return build.toString();        
+    }
+}
