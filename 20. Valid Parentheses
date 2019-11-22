@@ -1,0 +1,21 @@
+class Solution {
+    public boolean isValid(String s) {        
+        
+        Stack<Character> Parentheses = new Stack <>();
+        
+        for (int i = 0; i < s.length(); i++) {            
+           
+            if (s.charAt(i) == '[' || s.charAt(i) == '{' || s.charAt(i) == '(') {
+                Parentheses.push(s.charAt(i));
+            }
+            else if (s.charAt(i) == ']' && Parentheses.empty() == true || s.charAt(i) == '}' && Parentheses.empty() == true || s.charAt(i) == ')' && Parentheses.empty() == true ) {
+                Parentheses.push(s.charAt(i));
+            }
+            else if (Parentheses.peek() == '[' && s.charAt(i) == ']' || Parentheses.peek() == '{' && s.charAt(i) == '}' || Parentheses.peek() == '(' && s.charAt(i) == ')') { 
+                Parentheses.pop();
+            } else Parentheses.push(s.charAt(i));          
+
+        }
+        return Parentheses.empty();
+    }
+} 
