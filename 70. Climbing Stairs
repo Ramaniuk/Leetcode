@@ -1,0 +1,17 @@
+class Solution {
+    public int climbStairs(int n) {
+        
+        int climbStairs = 0;
+        int a = 1;
+        int b = 2;
+        if (n == 1 || n == 2) return n;
+        for (int i = 3; i <= n; i++) {
+            climbStairs = a + b;
+            a = b;
+            b = climbStairs;
+            }
+        return climbStairs;
+            
+        
+    }
+}
