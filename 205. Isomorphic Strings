@@ -1,0 +1,17 @@
+class Solution {
+    public boolean isIsomorphic(String s, String t) { 
+        int len = s.length();
+        Map<Character,Character> mapS = new HashMap<>();
+        Map<Character,Character> mapT = new HashMap<>();        
+        for (int i = 0; i < len; i++) {
+            mapS.put(s.charAt(i),t.charAt(i));
+            mapT.put(t.charAt(i),s.charAt(i)); 
+        }
+        for (int i = 0; i < len; i++) {
+            if ((mapS.get(s.charAt(i)) != t.charAt(i)) || 
+                mapT.get(t.charAt(i)) != s.charAt(i))
+                return false;
+        }
+        return true;        
+    }
+}
