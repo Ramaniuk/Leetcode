@@ -1,0 +1,24 @@
+class Solution {
+    public int lengthOfLastWord(String s) {                
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (i > 1 && s.charAt(i) != ' ' && s.charAt(i - 1) == ' ') { 
+                count = 0;
+            }            
+            if (s.charAt(i) != ' ') {
+                count += 1;
+            }
+        } 
+        return count;        
+    }
+}
+
+/* 
+
+count д. обнуляться только если текущий i == char и i - 1 == ' '
+
+a _ a _ a _ _
+1 1 0 1 0 1 1
+    1   1
+    
+*/
